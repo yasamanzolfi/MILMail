@@ -2,4 +2,8 @@
     <string name="app_name">MILMAIL</string>
     <string name="password">Password:</string>
     <string name="username">Username:</string>
+    <string name="receiver">to :</string>
+    <string name="subject">subject :</string>
+    <string name="body">body :</string>
+    <string name="topicSendEmail">Send Email</string>
 </resources>

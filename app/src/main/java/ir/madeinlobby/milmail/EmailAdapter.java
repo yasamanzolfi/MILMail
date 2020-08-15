@@ -1,14 +1,22 @@
 package ir.madeinlobby.milmail;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.squareup.picasso.Picasso;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -36,6 +44,7 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
         Email email = data.get(position);
         holder.senderTextView.setText(email.getSender());
         holder.subjectTextView.setText(email.getSubject());
+        Picasso.get().load(email.getImageURL()).into(holder.imageView);
     }
 
     @Override
@@ -46,11 +55,13 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView senderTextView;
         TextView subjectTextView;
+        ImageView imageView;
 
         ViewHolder(View itemView) {
             super(itemView);
             senderTextView = itemView.findViewById(R.id.senderInRow);
             subjectTextView = itemView.findViewById(R.id.subjectInRow);
+            imageView = itemView.findViewById(R.id.imageInRow);
         }
     }
 
